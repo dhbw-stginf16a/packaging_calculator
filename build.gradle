@@ -1,0 +1,16 @@
+apply plugin: 'application'
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.1'
+}
+
+mainClassName = "de.packagingcalculator.Main"
