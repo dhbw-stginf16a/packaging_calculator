@@ -1,5 +1,6 @@
 package de.packagingcalculator;
 
+import de.packagingcalculator.views.MainFrame;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -11,6 +12,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.show();
+        new MainFrame(primaryStage).show();
     }
 }
