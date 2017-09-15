@@ -8,6 +8,7 @@ public class Pricing {
     private double price; //in €
 
     public Pricing(double d1, double d2, double d3, int w, double p){
+        dimensions = new double[3];
         dimensions[0] = d1;
         dimensions[1] = d2;
         dimensions[2] = d3;

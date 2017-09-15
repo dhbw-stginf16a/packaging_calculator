@@ -1,5 +1,6 @@
 package de.packagingcalculator.controllers;
 
+import de.packagingcalculator.model.Calculator;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
@@ -56,7 +57,9 @@ public class MainController implements Initializable {
 
     @FXML
     private void onCalculate(ActionEvent event) {
-        result.set(width.get() + height.get() + depth.get() + weight.get());
+        Calculator cal = new Calculator();
+        result.set(cal.calcShippingCosts(width.get(), height.get(), depth.get(), weight.get()) + " Euro");
+        //result.set("Halllo");
     }
 
     //Getters And Setters

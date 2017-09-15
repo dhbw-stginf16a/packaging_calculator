@@ -14,7 +14,6 @@ public class Calculator {
         dhl.addPricing(new Pricing(600, 600, 1200, 10000, 8.49));
         dhl.addPricing(new Pricing(600, 600, 1200, 315000, 16.49));
         cariers.add(dhl);
-        throw new UnsupportedOperationException("Not yet implemented");
     }
 
     /**
@@ -41,7 +40,7 @@ public class Calculator {
                 }
             }
         }
-        return currentBest.getPrice();
+        return (currentBest != null) ? currentBest.getPrice() : -1;
     }
 
     private class CarierPricing{
@@ -49,7 +48,8 @@ public class Calculator {
         private String name;
 
         private CarierPricing(String name){
-            throw new UnsupportedOperationException("Not yet implemented");
+            this.name = name;
+            prices = new ArrayList<>(10);
         }
 
         private void addPricing(Pricing p){
