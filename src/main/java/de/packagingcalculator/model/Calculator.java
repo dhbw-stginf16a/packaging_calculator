@@ -9,7 +9,10 @@ public class Calculator {
     public Calculator(){
         cariers = new ArrayList<>(10);
         CarierPricing dhl = new CarierPricing("dhl");
-        dhl.addPricing(new Pricing());//TODO
+        dhl.addPricing(new Pricing(150, 300, 600, 2000, 4.99));
+        dhl.addPricing(new Pricing(600, 600, 1200, 5000, 5.99));
+        dhl.addPricing(new Pricing(600, 600, 1200, 10000, 8.49));
+        dhl.addPricing(new Pricing(600, 600, 1200, 315000, 16.49));
         cariers.add(dhl);
         throw new UnsupportedOperationException("Not yet implemented");
     }

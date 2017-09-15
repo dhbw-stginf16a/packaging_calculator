@@ -7,7 +7,7 @@ public class Pricing {
     private int weight; //in gramm
     private double price; //in €
 
-    public Pricing(double d1, double d2, double d3, int w, int p){
+    public Pricing(double d1, double d2, double d3, int w, double p){
         dimensions[0] = d1;
         dimensions[1] = d2;
         dimensions[2] = d3;
