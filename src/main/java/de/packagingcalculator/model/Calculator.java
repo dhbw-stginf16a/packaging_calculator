@@ -1,11 +1,16 @@
 package de.packagingcalculator.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Calculator {
     private List<CarierPricing> cariers;
 
     public Calculator(){
+        cariers = new ArrayList<>(10);
+        CarierPricing dhl = new CarierPricing("dhl");
+        dhl.addPricing(new Pricing());//TODO
+        cariers.add(dhl);
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
@@ -27,6 +32,10 @@ public class Calculator {
 
         private CarierPricing(String name){
             throw new UnsupportedOperationException("Not yet implemented");
+        }
+
+        private void addPricing(Pricing p){
+            prices.add(p);
         }
     }
 }
