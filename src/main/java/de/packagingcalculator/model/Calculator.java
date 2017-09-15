@@ -25,8 +25,23 @@ public class Calculator {
      * @param weight the weight of the package in g
      * @return the price of the package in Euro
      */
-    double calcShippingCosts(String length, String height, String width, String weight){
-        throw new UnsupportedOperationException("Not yet implemented");
+    public double calcShippingCosts(String length, String height, String width, String weight){
+        return calcShippingCostsMMg(Double.parseDouble(length), Double.parseDouble(height), Double.parseDouble(width), Integer.parseInt(weight));
+    }
+
+    public double calcShippingCostsMMg(double d1, double d2, double d3, int weight) {
+        Pricing currentBest = null;
+
+        for(CarierPricing carrier : cariers) {
+            for(Pricing pricing : carrier.getPricings()) {
+                if(pricing.fitsPackage(d1, d2, d3, weight)) {
+                    if(currentBest == null || currentBest.getPrice() > pricing.getPrice()){
+                        currentBest = pricing;
+                    }
+                }
+            }
+        }
+        return currentBest.getPrice();
     }
 
     private class CarierPricing{
@@ -39,6 +54,10 @@ public class Calculator {
 
         private void addPricing(Pricing p){
             prices.add(p);
+        }
+
+        private Iterable<Pricing> getPricings(){
+            return prices;
         }
     }
 }
