@@ -7,6 +7,15 @@ public class Pricing {
     private int weight; //in gramm
     private double price; //in €
 
+    /**
+     * Generates a Pricing with the according values
+     *
+     * @param d1
+     * @param d2
+     * @param d3
+     * @param w
+     * @param p
+     */
     public Pricing(double d1, double d2, double d3, int w, double p){
         dimensions = new double[3];
         dimensions[0] = d1;

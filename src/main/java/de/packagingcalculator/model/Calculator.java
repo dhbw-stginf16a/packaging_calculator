@@ -12,7 +12,7 @@ public class Calculator {
         dhl.addPricing(new Pricing(150, 300, 600, 2000, 4.99));
         dhl.addPricing(new Pricing(600, 600, 1200, 5000, 5.99));
         dhl.addPricing(new Pricing(600, 600, 1200, 10000, 8.49));
-        dhl.addPricing(new Pricing(600, 600, 1200, 315000, 16.49));
+        dhl.addPricing(new Pricing(600, 600, 1200, 31500, 16.49));
         cariers.add(dhl);
     }
 
