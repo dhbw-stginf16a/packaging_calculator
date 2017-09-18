@@ -1,6 +1,8 @@
 package de.packagingcalculator.controllers;
 
 import de.packagingcalculator.model.Calculator;
+import de.packagingcalculator.components.DistanceTextField;
+import de.packagingcalculator.components.WeightTextField;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
@@ -8,7 +10,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,13 +20,13 @@ public class MainController implements Initializable {
     @FXML
     ChoiceBox<String> shipperChoiceBox; // TODO: Replace with shipper class
     @FXML
-    TextField widthTextField;
+    DistanceTextField widthTextField;
     @FXML
-    TextField heightTextField;
+    DistanceTextField heightTextField;
     @FXML
-    TextField depthTextField;
+    DistanceTextField depthTextField;
     @FXML
-    TextField weightTextField;
+    WeightTextField weightTextField;
     @FXML
     Label informationLabel;
     @FXML

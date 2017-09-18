@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.packagingcalculator.components.DistanceTextField?>
+<?import de.packagingcalculator.components.WeightTextField?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.*?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="490.0" prefWidth="299.0" xmlns="http://javafx.com/javafx/8"
             fx:controller="de.packagingcalculator.controllers.MainController">
@@ -10,10 +14,10 @@
               AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <ChoiceBox fx:id="shipperChoiceBox" prefWidth="150.0"/>
-                <TextField fx:id="widthTextField" promptText="Width"/>
-                <TextField fx:id="heightTextField" promptText="Height"/>
-                <TextField fx:id="depthTextField" promptText="Depth"/>
-                <TextField fx:id="weightTextField" promptText="Weight"/>
+                <DistanceTextField fx:id="widthTextField" promptText="Width"/>
+                <DistanceTextField fx:id="heightTextField" promptText="Height"/>
+                <DistanceTextField fx:id="depthTextField" promptText="Depth"/>
+                <WeightTextField fx:id="weightTextField" promptText="Weight"/>
                 <Button mnemonicParsing="false" onAction="#onCalculate" text="Calculate"/>
                 <Label fx:id="infromationLabel" text="Label"/>
                 <Label fx:id="resultLabel" text="Label"/>
