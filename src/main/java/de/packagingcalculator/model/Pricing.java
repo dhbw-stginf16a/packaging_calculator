@@ -2,6 +2,9 @@ package de.packagingcalculator.model;
 
 import java.util.Arrays;
 
+/**
+ * This can hold all information related to a Pricing category
+ */
 public class Pricing {
     private double[] dimensions;
     private int weight; //in gramm
@@ -10,11 +13,11 @@ public class Pricing {
     /**
      * Generates a Pricing with the according values
      *
-     * @param d1
-     * @param d2
-     * @param d3
-     * @param w
-     * @param p
+     * @param d1 one dimension in mm
+     * @param d2 one dimension in mm
+     * @param d3 one dimension in mm
+     * @param w the weight in g
+     * @param p the price of this category
      */
     public Pricing(double d1, double d2, double d3, int w, double p){
         dimensions = new double[3];
@@ -27,6 +30,15 @@ public class Pricing {
         price = p;
     }
 
+    /**
+     * Checks the given package size against the requirements of this pricing category
+     *
+     * @param d1 one dimension in mm
+     * @param d2 one dimension in mm
+     * @param d3 one dimension in mm
+     * @param w  the weight in g
+     * @return true if the passed size fits, else false
+     */
     boolean fitsPackage(double d1, double d2, double d3, int w){
         boolean fits = false;
 
