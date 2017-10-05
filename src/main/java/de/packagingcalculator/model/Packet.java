@@ -26,14 +26,13 @@ public class Packet {
     }
 
     /**
-     * For Strings
+     * For Strings TODO remove
      *
      * @param d1
      * @param d2
      * @param d3
      * @param w
      */
-    @Deprecated
     public Packet(String d1, String d2, String d3, String w) {
         this(Double.parseDouble(d1), Double.parseDouble(d2), Double.parseDouble(d3), Integer.parseInt(w));
     }

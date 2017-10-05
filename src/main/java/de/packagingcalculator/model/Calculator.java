@@ -10,9 +10,8 @@ public class Calculator {
     private List<CarrierPricing> carriers;
 
     /**
-     * Initializes a instance via code.
+     * Initializes a instance via code. TODO remove
      */
-    @Deprecated
     public Calculator(){
         carriers = new ArrayList<>(10);
 
