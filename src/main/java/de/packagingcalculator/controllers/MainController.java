@@ -1,8 +1,8 @@
 package de.packagingcalculator.controllers;
 
-import de.packagingcalculator.model.Calculator;
 import de.packagingcalculator.components.DistanceTextField;
 import de.packagingcalculator.components.WeightTextField;
+import de.packagingcalculator.model.Calculator;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
@@ -28,6 +28,8 @@ public class MainController implements Initializable {
     @FXML
     WeightTextField weightTextField;
     @FXML
+    Label superPackageLabel;
+    @FXML
     Label informationLabel;
     @FXML
     Label resultLabel;
@@ -39,6 +41,7 @@ public class MainController implements Initializable {
     StringProperty depth = new SimpleStringProperty();
     StringProperty weight = new SimpleStringProperty();
     StringProperty result = new SimpleStringProperty();
+    StringProperty superPackage = new SimpleStringProperty();
 
 
     //Controller initialization
@@ -50,6 +53,7 @@ public class MainController implements Initializable {
         depthTextField.textProperty().bindBidirectional(depth);
         weightTextField.textProperty().bindBidirectional(weight);
         resultLabel.textProperty().bind(result);
+        superPackageLabel.textProperty().bind(superPackage);
 
         // TODO: Further initialization here
     }
@@ -61,6 +65,16 @@ public class MainController implements Initializable {
         Calculator cal = new Calculator();
         result.set(cal.calcShippingCosts(width.get(), height.get(), depth.get(), weight.get()) + " Euro");
         //result.set("Halllo");
+    }
+
+    @FXML
+    private void onAdd(ActionEvent event) {
+
+    }
+
+    @FXML
+    private void onRemove(ActionEvent event) {
+
     }
 
     //Getters And Setters
@@ -123,5 +137,17 @@ public class MainController implements Initializable {
 
     public StringProperty resultProperty() {
         return result;
+    }
+
+    public String getSuperPackage() {
+        return superPackage.get();
+    }
+
+    public void setSuperPackage(String superPackage) {
+        this.superPackage.set(superPackage);
+    }
+
+    public StringProperty superPackageProperty() {
+        return superPackage;
     }
 }
