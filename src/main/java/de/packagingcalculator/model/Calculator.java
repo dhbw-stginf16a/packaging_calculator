@@ -37,6 +37,21 @@ public class Calculator {
         return calcShippingCostsMMg(Double.parseDouble(length), Double.parseDouble(height), Double.parseDouble(width), Integer.parseInt(weight));
     }
 
+    public double calcShippingCostsMMg(Packet p) {
+        Packet currentBest = null;
+
+        for (CarrierPricing carrier : carriers) {
+            for (Packet pricing : carrier.getPricings()) {
+                if (pricing.fitsPackage(p)) {
+                    if (currentBest == null || currentBest.getPrice() > pricing.getPrice()) {
+                        currentBest = pricing;
+                    }
+                }
+            }
+        }
+        return (currentBest != null) ? currentBest.getPrice() : -1;
+    }
+
     /**
      * Takes the according Parameters and returns the cheapest price
      *

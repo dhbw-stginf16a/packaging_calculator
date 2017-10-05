@@ -26,6 +26,19 @@ public class Packet {
     }
 
     /**
+     * For Strings
+     *
+     * @param d1
+     * @param d2
+     * @param d3
+     * @param w
+     */
+    @Deprecated
+    public Packet(String d1, String d2, String d3, String w) {
+        this(Double.parseDouble(d1), Double.parseDouble(d2), Double.parseDouble(d3), Integer.parseInt(w));
+    }
+
+    /**
      * Generates a Packet with the according values
      *
      * @param d1 one dimension in mm
@@ -123,5 +136,13 @@ public class Packet {
             sum = sum.addPacket(p);
         }
         return sum;
+    }
+
+    @Override
+    public String toString() {
+        return dimensions[0] + "/" +
+                dimensions[1] + "/" +
+                dimensions[2] + "/" +
+                weight;
     }
 }

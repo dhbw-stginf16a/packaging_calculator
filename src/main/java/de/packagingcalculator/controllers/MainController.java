@@ -3,6 +3,7 @@ package de.packagingcalculator.controllers;
 import de.packagingcalculator.components.DistanceTextField;
 import de.packagingcalculator.components.WeightTextField;
 import de.packagingcalculator.model.Calculator;
+import de.packagingcalculator.model.Packet;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
@@ -43,6 +44,8 @@ public class MainController implements Initializable {
     StringProperty result = new SimpleStringProperty();
     StringProperty superPackage = new SimpleStringProperty();
 
+    Packet currentSum = new Packet(0, 0, 0, 0);
+
 
     //Controller initialization
 
@@ -69,12 +72,16 @@ public class MainController implements Initializable {
 
     @FXML
     private void onAdd(ActionEvent event) {
-
+        currentSum = currentSum.addPacket(new Packet(width.get(), height.get(), depth.get(), weight.get()));
+        superPackage.set(currentSum.toString());
+        Calculator cal = new Calculator();
+        result.set(cal.calcShippingCostsMMg(currentSum) + " Euro");
     }
 
     @FXML
-    private void onRemove(ActionEvent event) {
-
+    private void onReset(ActionEvent event) {
+        currentSum = new Packet(0, 0, 0, 0);
+        superPackage.set(currentSum.toString());
     }
 
     //Getters And Setters
