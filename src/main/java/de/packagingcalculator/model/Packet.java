@@ -3,15 +3,15 @@ package de.packagingcalculator.model;
 import java.util.Arrays;
 
 /**
- * This can hold all information related to a Pricing category
+ * This can hold all information related to a Packet category
  */
-public class Pricing {
+public class Packet {
     private double[] dimensions;
     private int weight; //in gramm
     private double price; //in €
 
     /**
-     * Generates a Pricing with the according values
+     * Generates a Packet with the according values
      *
      * @param d1 one dimension in mm
      * @param d2 one dimension in mm
@@ -19,7 +19,7 @@ public class Pricing {
      * @param w the weight in g
      * @param p the price of this category
      */
-    public Pricing(double d1, double d2, double d3, int w, double p){
+    public Packet(double d1, double d2, double d3, int w, double p) {
         dimensions = new double[3];
         dimensions[0] = d1;
         dimensions[1] = d2;

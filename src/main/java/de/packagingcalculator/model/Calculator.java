@@ -7,22 +7,22 @@ import java.util.List;
  * A class that can hold all carrier information and get the cheapest price for every carrier.
  */
 public class Calculator {
-    private List<CarrierPricing> cariers;
+    private List<CarrierPricing> carriers;
 
     /**
      * Initializes a instance via code.
      */
     @Deprecated
     public Calculator(){
-        cariers = new ArrayList<>(10);
+        carriers = new ArrayList<>(10);
 
         //init dhl as a carrier
         CarrierPricing dhl = new CarrierPricing("dhl");
-        dhl.addPricing(new Pricing(150, 300, 600, 2000, 4.99));
-        dhl.addPricing(new Pricing(600, 600, 1200, 5000, 5.99));
-        dhl.addPricing(new Pricing(600, 600, 1200, 10000, 8.49));
-        dhl.addPricing(new Pricing(600, 600, 1200, 31500, 16.49));
-        cariers.add(dhl);
+        dhl.addPricing(new Packet(150, 300, 600, 2000, 4.99));
+        dhl.addPricing(new Packet(600, 600, 1200, 5000, 5.99));
+        dhl.addPricing(new Packet(600, 600, 1200, 10000, 8.49));
+        dhl.addPricing(new Packet(600, 600, 1200, 31500, 16.49));
+        carriers.add(dhl);
     }
 
     /**
@@ -47,10 +47,10 @@ public class Calculator {
      * @return the price of the package in Euro
      */
     public double calcShippingCostsMMg(double d1, double d2, double d3, int weight) {
-        Pricing currentBest = null;
+        Packet currentBest = null;
 
-        for (CarrierPricing carrier : cariers) {
-            for(Pricing pricing : carrier.getPricings()) {
+        for (CarrierPricing carrier : carriers) {
+            for (Packet pricing : carrier.getPricings()) {
                 if(pricing.fitsPackage(d1, d2, d3, weight)) {
                     if(currentBest == null || currentBest.getPrice() > pricing.getPrice()){
                         currentBest = pricing;
@@ -65,13 +65,13 @@ public class Calculator {
      * A instance of this is able to hold all price categories of one carrier.
      */
     private class CarrierPricing {
-        private List<Pricing> prices;
+        private List<Packet> prices;
         private String name;
 
         /**
          * Generates a instance of CarrierPricing for the given carrier name.
          * <p>
-         * The pricing list will be empty and could be filled via {@link CarrierPricing#addPricing(Pricing)}
+         * The pricing list will be empty and could be filled via {@link CarrierPricing#addPricing(Packet)}
          *
          * @param name The name of Carrier
          */
@@ -81,18 +81,18 @@ public class Calculator {
         }
 
         /**
-         * Adds a Pricing categorie to this carrier
-         * @param p the Pricing categorie to add
+         * Adds a Packet categorie to this carrier
+         * @param p the Packet categorie to add
          */
-        private void addPricing(Pricing p){
+        private void addPricing(Packet p) {
             prices.add(p);
         }
 
         /**
          * Returns a Iterable over the list of pricing's.
-         * @return {@link Iterable<Pricing>} that holds all pricing's added to this object
+         * @return {@link Iterable< Packet >} that holds all pricing's added to this object
          */
-        private Iterable<Pricing> getPricings(){
+        private Iterable<Packet> getPricings() {
             return prices;
         }
 
