@@ -1,7 +1,5 @@
-package util;
+package de.packagingcalculator.util;
 
-import de.packagingcalculator.util.Distance;
-import de.packagingcalculator.util.DistanceUnit;
 import org.junit.Ignore;
 import org.junit.Test;
 
