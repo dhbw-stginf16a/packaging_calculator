@@ -5,8 +5,9 @@ import java.util.List;
 
 /**
  * A class that can hold all carrier information and get the cheapest price for every carrier.
+ * @author dorian, andreas, erik, jan-robin
  */
-public class Calculator {
+public class Calculator implements ShippingCostCalculatable {
     private List<CarrierPricing> carriers;
 
     /**
@@ -48,7 +49,7 @@ public class Calculator {
                 }
             }
         }
-        return (currentBest != null) ? currentBest.getPrice() : -1;
+        return (currentBest != null) ? currentBest.getPrice() : Double.NaN;
     }
 
     /**
@@ -73,6 +74,12 @@ public class Calculator {
             }
         }
         return (currentBest != null) ? currentBest.getPrice() : -1;
+    }
+
+    @Override
+    public double calcShippingCosts(List<Packet> packets) {
+        Packet masterPacket = new Packet(0, 0, 0, 0);
+        return calcShippingCostsMMg(masterPacket.addPackets(packets));
     }
 
     /**
