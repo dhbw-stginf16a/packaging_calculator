@@ -16,6 +16,7 @@ public class Packet {
      * Default Constructor for Packet class
      */
     public Packet(){
+        dimensions = new double[3];
     }
 
     /**
