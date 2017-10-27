@@ -5,11 +5,17 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
+/**
+ * @author andreas, dorian, erik, jan-robin
+ */
 public class CalculatorTest {
 
-    Calculator calculator;
+    private ShippingCostCalculatable calculator;
 
     @Before
     public void beforeTest() {
@@ -45,7 +51,19 @@ public class CalculatorTest {
         testPrice(16.49, 500, 250, 100, 11000);
     }
 
-    private void testPrice(double expectedPrice, double d1, double d2, double d3, int weight) {
-        assertEquals(expectedPrice, calculator.calcShippingCostsMMg(d1, d2, d3, weight), 0.0);
+    private void testPrice(double expectedPrice, int d1, int d2, int d3, int weight) {
+        assertEquals(expectedPrice, calculator.calcShippingCosts(createPacketList(d1, d2, d3, weight)), 0.0);
+    }
+
+    private List<Packet> createPacketList(int d1, int d2, int d3, int weight) {
+        ArrayList<Packet> list = new ArrayList<>(1);
+        Packet p = new Packet();
+        p.setHeight(d1);
+        p.setWidth(d2);
+        p.setLength(d3);
+        p.setWeight(weight);
+        list.add(p);
+
+        return list;
     }
 }
