@@ -13,6 +13,12 @@ public class Packet {
     private static double INVALID_PRICE = -1.0;
 
     /**
+     * Default Constructor for Packet class
+     */
+    public Packet(){
+    }
+
+    /**
      * Generates a Packet with the according values
      * Sets the price to a negative value. getPrice will throw an {@link UnsupportedOperationException} if called.
      *
@@ -135,6 +141,38 @@ public class Packet {
             sum = sum.addPacket(p);
         }
         return sum;
+    }
+
+    public double getLength() {
+        return this.dimensions[0];
+    }
+
+    public void setLength(double l) {
+        this.dimensions[0] = l;
+    }
+
+    public double getHeight() {
+        return this.dimensions[1];
+    }
+
+    public void setHeight(double h) {
+        this.dimensions[1] = h;
+    }
+
+    public double getWidth() {
+        return this.dimensions[2];
+    }
+
+    public void setWidth(double w) {
+        this.dimensions[2] = w;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int w) {
+        this.weight = w;
     }
 
     @Override
